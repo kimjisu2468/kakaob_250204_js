@@ -11,7 +11,7 @@
 <body>
     
     <div class="top_bar con_min_width">
-        <div class="con border-gold flex height-100p">
+        <div class="con flex height-100p">
             <div class="logo_wrap flex">
                 <a href="#" class="flex">
                     <img src="../images/logo_black.svg" alt="">
@@ -105,6 +105,7 @@
         .flex-as {
             align-self: center;
         }
+
         /* 커스텀 */
         .con_min_width {
             min-width: 1080px;
@@ -114,13 +115,19 @@
             width: 1080px;
         }
 
-        /* 탑바 */
+        /* 탑바 시작 */
         .top_bar {
             height: 80px;
-            background-color: beige;
+            width: 100%;
+            background-color: white;
             font-size: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
         }
 
+        /* 로고 */
         .top_bar .logo_wrap > a {
             width: 116px;
         }
@@ -129,6 +136,31 @@
             width: 100%;
         }
 
+        /* 텍스트 */
+        .top_bar .menu_box > ul > li > a {
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .top_bar .menu_box > ul > li > a:hover {
+            text-decoration: underline;
+        }
+
+        .top_bar .menu_box > ul > li > a::after {
+            content: "";
+            background-color: #000;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+
+        .top_bar .menu_box > ul > li:hover > a::after {
+            display: block;
+        }
+        /* 관련 사이트 */
         .top_bar .dropdown .dropBtn {
             background: rgba(244, 244, 244, 0.8);
             color: rgba(68, 68, 68, 1);
@@ -145,6 +177,8 @@
             display: inline-block;
             margin-left: 5px;
         }
+
+        /* 탑바 끝 */
     </style>
 
     <script>
