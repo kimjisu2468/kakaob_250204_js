@@ -567,12 +567,12 @@
             var dropdwonContent = $('.dropdown_content');
             var ico = $('.ico');
 
-            if(ico.hasClass('.is-active')) {
-                ico.removeClass('is-active');
-                $('.ico').removeClass('rotate');
+            if(dropdwonContent.hasClass('is-active')) {
+                dropdwonContent.removeClass('is-active');
+                ico.removeClass('rotate');
             } else {
-                ico.addClass('.is-active');
-                $('.ico').addClass('rotate');
+                dropdwonContent.addClass('is-active');
+                ico.addClass('rotate');
             }
         });
     </script>
