@@ -7,6 +7,9 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     
@@ -34,8 +37,8 @@
                                             <li><a href="#" class="block">주주사 소개</a></li>
                                             <li><a href="#" class="block">오시는 길</a></li>
                                             <li><a href="#" class="block">제휴문의</a></li>
-                                            <li><a href="#" class="block">금융기술연구소 </a></li>
-                                            <li><a href="#" class="block">카카오뱅크 인증서</a></li>
+                                            <li><a href="#" target="_blank" class="block">금융기술연구소 </a></li>
+                                            <li><a href="#" target="_blank" class="block">카카오뱅크 인증서</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -52,7 +55,7 @@
                                             <li><a href="#" class="block">입찰공고</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">인재영입</a></li>
+                                    <li><a href="#" target="_blank">인재영입</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -103,7 +106,7 @@
                                         <a href="#">IR일정</a>
                                         <ul>
                                             <li><a href="#" class="block">IR행사</a></li>
-                                            <li><a href="#" class="block">IR미팅예약</a></li>
+                                            <li><a href="#" target="_blank" class="block">IR미팅예약</a></li>
                                             <li><a href="#" class="block">주주총회</a></li>
                                         </ul>
                                     </li>
@@ -265,13 +268,14 @@
                 </ul>
             </div>
 
+            <!-- 관련 사이트 -->
             <div class="dropdown flex-as">
                 <button class="dropBtn">
                     <span>관련사이트</span>
                     <span class="ico"><i class="fa-solid fa-angle-down"></i></span>
                 </button>
 
-                <div class="dropdown_content is-active">
+                <div class="dropdown_content">
                     <ul>
                         <li><a href="#"><span>카카오뱅크 AD</span></a></li>
                         <li><a href="#"><span>카카오뱅크 인증서</span></a></li>
@@ -281,6 +285,12 @@
                 </div>
             </div>
             
+            <!-- 글로벌 logo -->
+            <div class="flex flex-as">
+                <a href="#" class="global_logo">
+                    <span><img src="/images/icon_eng.svg" alt=""></span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -424,7 +434,7 @@
             display: block;
         }
 
-        .top_bar .menu_box > ul > li .menu_box-sec_menu > ul > li {
+        .top_bar .menu_box .menu_box-sec_menu > ul > li {
             width: calc(100% / 6);
         }
 
@@ -432,18 +442,30 @@
             width: calc(100% / 4);
         }
 
-        .top_bar .menu_box > ul > li .menu_box-sec_menu > ul > li > a {
+        .top_bar .menu_box .menu_box-sec_menu > ul > li > a {
             display: block;
             margin-bottom: 20px;
             text-align: center;
             font-size: 17px;
         }
 
-        .top_bar .menu_box > ul > li .menu_box-sec_menu ul ul > li > a {
+        .top_bar .menu_box .menu_box-sec_menu > ul ul > li > a {
             font-size: 13px;
             color: #444;
             text-align: center;
             margin-bottom: 24px;
+        }
+
+        .top_bar .menu_box .menu_box-sec_menu ul li a[target="_blank"]::after {
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: url(https://www.kakaobank.com/static/images/web/svg_line_outlink.svg);
+            background-size: 14px 14px;
+            margin-left: 5px;
+            margin-top: -4px;
+            vertical-align: middle;
         }
 
         .top_bar .menu_box > ul > li .menu_box-sec_menu > ul > li ul > li{
@@ -470,6 +492,11 @@
         .top_bar .dropdown .dropBtn .ico {
             display: inline-block;
             margin-left: 5px;
+            transition: transform .3s ease;
+        }
+
+        .top_bar .dropdown .rotate {
+            transform: rotate(-180deg);
         }
 
         .top_bar .dropdown .dropdown_content {
@@ -483,8 +510,17 @@
             width: 240px;
             overflow: hidden;
             visibility: hidden;
+            transform: translateY(4px);
+            transition: all .1s linear;
+            opacity: 0;
         }
 
+        .top_bar .dropdown .is-active {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         .top_bar .dropdown .dropdown_content a {
             font-size: 13px;
             display: block;
@@ -494,16 +530,51 @@
 
         .top_bar .dropdown .dropdown_content a:hover {
             text-decoration: underline;
+            background-color: #f7f7f7;
         }
-        
-        .top_bar .is-active {
-            visibility: visible !important;
+
+        .top_bar .dropdown .dropdown_content a::after {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: url(https://www.kakaobank.com/static/images/web/svg_line_outlink.svg);
+            background-size: 12px 12px;
+            margin-left: 8px;
+            margin-top: -4px;
+            vertical-align: middle;
+        }
+
+        /* 글로벌 로고 */
+        .top_bar .global_logo {
+            display: inline-block;
+            width: 20px;
+        }
+
+        .top_bar .global_logo > span > img {
+            width: 100%;
+            display: block;
+        }
+
+        .top_bar .global_logo:hover > span > img {
+            opacity: .3;
         }
         /* 탑바 끝 */
     </style>
 
     <script>
+        $('.dropBtn').click(function (){
+            var dropdwonContent = $('.dropdown_content');
+            var ico = $('.ico');
 
+            if(ico.hasClass('.is-active')) {
+                ico.removeClass('is-active');
+                $('.ico').removeClass('rotate');
+            } else {
+                ico.addClass('.is-active');
+                $('.ico').addClass('rotate');
+            }
+        });
     </script>
 </body>
 </html>
